@@ -1,0 +1,196 @@
+{
+  "3": {
+    "inputs": {
+      "seed": 499153120156221,
+      "steps": 20,
+      "cfg": 7,
+      "sampler_name": "dpmpp_2m",
+      "scheduler": "karras",
+      "denoise": 0.5,
+      "model": [
+        "4",
+        0
+      ],
+      "positive": [
+        "30",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "latent_image": [
+        "32",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "4": {
+    "inputs": {
+      "ckpt_name": "realDreamVanGogh_1.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "6": {
+    "inputs": {
+      "text": "A painting in the style of Vincent van Gogh, with vivid brushstrokes, vivid colors, swirling patterns, bold colors, and heavy use of contrast. Thick paint application with dynamic composition and emotional depth.\n",
+      "clip": [
+        "4",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "7": {
+    "inputs": {
+      "text": "blurry, low detail, cartoonish, 3D render, digital art, abstract, soft colors, pale colors, smooth textures, sharp edges, pixelated, deformed, distorted.\n",
+      "clip": [
+        "4",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "8": {
+    "inputs": {
+      "samples": [
+        "3",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "9": {
+    "inputs": {
+      "filename_prefix": "ComfyUI",
+      "images": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "13": {
+    "inputs": {
+      "image": "Schoolboy_Vector_Character_Preview.jpg",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "19": {
+    "inputs": {
+      "preprocessor": "lineart",
+      "sd_version": "sd15",
+      "resolution": 768,
+      "preprocessor_override": "None",
+      "image": [
+        "13",
+        0
+      ]
+    },
+    "class_type": "AV_ControlNetPreprocessor",
+    "_meta": {
+      "title": "ControlNet Preprocessor"
+    }
+  },
+  "22": {
+    "inputs": {
+      "images": [
+        "19",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "30": {
+    "inputs": {
+      "strength": 0.55,
+      "conditioning": [
+        "6",
+        0
+      ],
+      "control_net": [
+        "31",
+        0
+      ],
+      "image": [
+        "19",
+        0
+      ]
+    },
+    "class_type": "ControlNetApply",
+    "_meta": {
+      "title": "Apply ControlNet"
+    }
+  },
+  "31": {
+    "inputs": {
+      "control_net_name": "controlnetMyseeEdgeDrawing_02.safetensors"
+    },
+    "class_type": "ControlNetLoader",
+    "_meta": {
+      "title": "Load ControlNet Model"
+    }
+  },
+  "32": {
+    "inputs": {
+      "pixels": [
+        "33",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "VAEEncode",
+    "_meta": {
+      "title": "VAE Encode"
+    }
+  },
+  "33": {
+    "inputs": {
+      "upscale_method": "nearest-exact",
+      "width": 768,
+      "height": 768,
+      "crop": "center",
+      "image": [
+        "13",
+        0
+      ]
+    },
+    "class_type": "ImageScale",
+    "_meta": {
+      "title": "Upscale Image"
+    }
+  }
+}

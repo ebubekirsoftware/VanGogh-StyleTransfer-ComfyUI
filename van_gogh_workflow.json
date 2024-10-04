@@ -1,0 +1,1183 @@
+{
+  "last_node_id": 38,
+  "last_link_id": 95,
+  "nodes": [
+    {
+      "id": 34,
+      "type": "workflow/Prompt",
+      "pos": {
+        "0": 347,
+        "1": 699
+      },
+      "size": {
+        "0": 1108.901611328125,
+        "1": 205.34686279296875
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 71
+        },
+        {
+          "name": "CLIPTextEncode clip",
+          "type": "CLIP",
+          "link": 72
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            80
+          ],
+          "shape": 3
+        },
+        {
+          "name": "CLIPTextEncode CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            93
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "workflow/Prompt"
+      },
+      "widgets_values": [
+        "A painting in the style of Vincent van Gogh, with vivid brushstrokes, vivid colors, swirling patterns, bold colors, and heavy use of contrast. Thick paint application with dynamic composition and emotional depth.\n",
+        "blurry, low detail, cartoonish, 3D render, digital art, abstract, soft colors, pale colors, smooth textures, sharp edges, pixelated, deformed, distorted.\n"
+      ]
+    },
+    {
+      "id": 38,
+      "type": "workflow/Sampler Parameters",
+      "pos": {
+        "0": 347,
+        "1": 279
+      },
+      "size": {
+        "0": 341.9144592285156,
+        "1": 378
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 91
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 92
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 93
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 94
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 95
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            89
+          ],
+          "shape": 3
+        },
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            90
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "workflow/Sampler Parameters"
+      },
+      "widgets_values": [
+        771207810570862,
+        "randomize",
+        20,
+        7.1000000000000005,
+        "dpmpp_2m",
+        "karras",
+        0.37,
+        "nearest-exact",
+        768,
+        768,
+        "disabled"
+      ]
+    },
+    {
+      "id": 36,
+      "type": "workflow/ControlNet",
+      "pos": {
+        "0": 347,
+        "1": 35
+      },
+      "size": {
+        "0": 342.3542785644531,
+        "1": 205.1522979736328
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 83
+        },
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 80
+        },
+        {
+          "name": "control_net",
+          "type": "CONTROL_NET",
+          "link": 81
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [],
+          "shape": 3
+        },
+        {
+          "name": "CNET_NAME",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            92
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "workflow/ControlNet"
+      },
+      "widgets_values": [
+        "lineart",
+        "sd15",
+        768,
+        "None",
+        0.56
+      ]
+    },
+    {
+      "id": 35,
+      "type": "workflow/Model",
+      "pos": {
+        "0": 347,
+        "1": -146
+      },
+      "size": {
+        "0": 343.68145751953125,
+        "1": 142
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            91
+          ],
+          "shape": 3
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            71,
+            72
+          ],
+          "shape": 3
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            86,
+            88
+          ],
+          "shape": 3
+        },
+        {
+          "name": "CONTROL_NET",
+          "type": "CONTROL_NET",
+          "links": [
+            81
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "workflow/Model"
+      },
+      "widgets_values": [
+        "realDreamVanGogh_1.safetensors",
+        "controlnetMyseeEdgeDrawing_02.safetensors"
+      ]
+    },
+    {
+      "id": 37,
+      "type": "workflow/Image",
+      "pos": {
+        "0": 702,
+        "1": -146
+      },
+      "size": {
+        "0": 753.4990844726562,
+        "1": 803.220947265625
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "pixels",
+          "type": "IMAGE",
+          "link": 90
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 86
+        },
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 89
+        },
+        {
+          "name": "VAEDecode vae",
+          "type": "VAE",
+          "link": 88
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            83,
+            95
+          ],
+          "shape": 3
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            94
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "workflow/Image"
+      },
+      "widgets_values": [
+        "character.jpg",
+        "image",
+        "ComfyUI"
+      ]
+    }
+  ],
+  "links": [
+    [
+      71,
+      35,
+      1,
+      34,
+      0,
+      "CLIP"
+    ],
+    [
+      72,
+      35,
+      1,
+      34,
+      1,
+      "CLIP"
+    ],
+    [
+      80,
+      34,
+      0,
+      36,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      81,
+      35,
+      3,
+      36,
+      2,
+      "CONTROL_NET"
+    ],
+    [
+      83,
+      37,
+      0,
+      36,
+      0,
+      "IMAGE"
+    ],
+    [
+      86,
+      35,
+      2,
+      37,
+      1,
+      "VAE"
+    ],
+    [
+      88,
+      35,
+      2,
+      37,
+      3,
+      "VAE"
+    ],
+    [
+      89,
+      38,
+      0,
+      37,
+      2,
+      "LATENT"
+    ],
+    [
+      90,
+      38,
+      1,
+      37,
+      0,
+      "IMAGE"
+    ],
+    [
+      91,
+      35,
+      0,
+      38,
+      0,
+      "MODEL"
+    ],
+    [
+      92,
+      36,
+      2,
+      38,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      93,
+      34,
+      1,
+      38,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      94,
+      37,
+      2,
+      38,
+      3,
+      "LATENT"
+    ],
+    [
+      95,
+      37,
+      0,
+      38,
+      4,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.8264462809917354,
+      "offset": [
+        237.12294857250217,
+        169.34108899323823
+      ]
+    },
+    "groupNodes": {
+      "Model": {
+        "nodes": [
+          {
+            "id": -1,
+            "type": "CheckpointLoaderSimple",
+            "pos": {
+              "0": -287,
+              "1": 13
+            },
+            "size": {
+              "0": 315,
+              "1": 98
+            },
+            "flags": {},
+            "order": 0,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+              {
+                "name": "MODEL",
+                "type": "MODEL",
+                "links": [],
+                "slot_index": 0
+              },
+              {
+                "name": "CLIP",
+                "type": "CLIP",
+                "links": [],
+                "slot_index": 1
+              },
+              {
+                "name": "VAE",
+                "type": "VAE",
+                "links": [],
+                "slot_index": 2
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "CheckpointLoaderSimple"
+            },
+            "widgets_values": [
+              "realDreamVanGogh_1.safetensors"
+            ],
+            "index": 0
+          },
+          {
+            "id": -1,
+            "type": "ControlNetLoader",
+            "pos": {
+              "0": -333,
+              "1": 143
+            },
+            "size": {
+              "0": 315,
+              "1": 58
+            },
+            "flags": {},
+            "order": 2,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+              {
+                "name": "CONTROL_NET",
+                "type": "CONTROL_NET",
+                "links": [],
+                "slot_index": 0,
+                "shape": 3
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "ControlNetLoader"
+            },
+            "widgets_values": [
+              "controlnetMyseeEdgeDrawing_02.safetensors"
+            ],
+            "index": 1
+          }
+        ],
+        "links": [],
+        "external": [
+          [
+            0,
+            0,
+            "MODEL"
+          ],
+          [
+            0,
+            1,
+            "CLIP"
+          ],
+          [
+            0,
+            2,
+            "VAE"
+          ],
+          [
+            1,
+            0,
+            "CONTROL_NET"
+          ]
+        ]
+      },
+      "Prompt": {
+        "nodes": [
+          {
+            "id": -1,
+            "type": "CLIPTextEncode",
+            "pos": {
+              "0": 142,
+              "1": 0
+            },
+            "size": {
+              "0": 422.84503173828125,
+              "1": 164.31304931640625
+            },
+            "flags": {},
+            "order": 3,
+            "mode": 0,
+            "inputs": [
+              {
+                "name": "clip",
+                "type": "CLIP",
+                "link": null
+              }
+            ],
+            "outputs": [
+              {
+                "name": "CONDITIONING",
+                "type": "CONDITIONING",
+                "links": [],
+                "slot_index": 0
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "CLIPTextEncode"
+            },
+            "widgets_values": [
+              "A painting in the style of Vincent van Gogh, with vivid brushstrokes, vivid colors, swirling patterns, bold colors, and heavy use of contrast. Thick paint application with dynamic composition and emotional depth.\n"
+            ],
+            "index": 0
+          },
+          {
+            "id": -1,
+            "type": "CLIPTextEncode",
+            "pos": {
+              "0": 135,
+              "1": 214
+            },
+            "size": {
+              "0": 425.27801513671875,
+              "1": 180.6060791015625
+            },
+            "flags": {},
+            "order": 4,
+            "mode": 0,
+            "inputs": [
+              {
+                "name": "clip",
+                "type": "CLIP",
+                "link": null
+              }
+            ],
+            "outputs": [
+              {
+                "name": "CONDITIONING",
+                "type": "CONDITIONING",
+                "links": [],
+                "slot_index": 0
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "CLIPTextEncode"
+            },
+            "widgets_values": [
+              "blurry, low detail, cartoonish, 3D render, digital art, abstract, soft colors, pale colors, smooth textures, sharp edges, pixelated, deformed, distorted.\n"
+            ],
+            "index": 1
+          }
+        ],
+        "links": [
+          [
+            null,
+            1,
+            0,
+            0,
+            4,
+            "CLIP"
+          ],
+          [
+            null,
+            1,
+            1,
+            0,
+            4,
+            "CLIP"
+          ]
+        ],
+        "external": [
+          [
+            0,
+            0,
+            "CONDITIONING"
+          ],
+          [
+            1,
+            0,
+            "CONDITIONING"
+          ]
+        ]
+      },
+      "ControlNet": {
+        "nodes": [
+          {
+            "id": -1,
+            "type": "AV_ControlNetPreprocessor",
+            "pos": {
+              "0": 650,
+              "1": 416
+            },
+            "size": {
+              "0": 315,
+              "1": 150
+            },
+            "flags": {},
+            "order": 2,
+            "mode": 0,
+            "inputs": [
+              {
+                "name": "image",
+                "type": "IMAGE",
+                "link": null
+              }
+            ],
+            "outputs": [
+              {
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "links": [],
+                "slot_index": 0,
+                "shape": 3
+              },
+              {
+                "name": "CNET_NAME",
+                "type": "STRING",
+                "links": null,
+                "shape": 3
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "AV_ControlNetPreprocessor"
+            },
+            "widgets_values": [
+              "lineart",
+              "sd15",
+              768,
+              "None"
+            ],
+            "index": 0
+          },
+          {
+            "id": -1,
+            "type": "ControlNetApply",
+            "pos": {
+              "0": 672,
+              "1": 271
+            },
+            "size": {
+              "0": 317.4000244140625,
+              "1": 98
+            },
+            "flags": {},
+            "order": 7,
+            "mode": 0,
+            "inputs": [
+              {
+                "name": "conditioning",
+                "type": "CONDITIONING",
+                "link": null
+              },
+              {
+                "name": "control_net",
+                "type": "CONTROL_NET",
+                "link": null
+              },
+              {
+                "name": "image",
+                "type": "IMAGE",
+                "link": null
+              }
+            ],
+            "outputs": [
+              {
+                "name": "CONDITIONING",
+                "type": "CONDITIONING",
+                "links": [],
+                "slot_index": 0,
+                "shape": 3
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "ControlNetApply"
+            },
+            "widgets_values": [
+              0.55
+            ],
+            "index": 1
+          }
+        ],
+        "links": [
+          [
+            null,
+            0,
+            0,
+            0,
+            13,
+            "IMAGE"
+          ],
+          [
+            null,
+            0,
+            1,
+            0,
+            34,
+            "CONDITIONING"
+          ],
+          [
+            null,
+            3,
+            1,
+            1,
+            35,
+            "CONTROL_NET"
+          ],
+          [
+            0,
+            0,
+            1,
+            2,
+            19,
+            "IMAGE"
+          ]
+        ],
+        "external": [
+          [
+            0,
+            0,
+            "IMAGE"
+          ],
+          [
+            1,
+            0,
+            "CONDITIONING"
+          ]
+        ]
+      },
+      "Image": {
+        "nodes": [
+          {
+            "id": -1,
+            "type": "LoadImage",
+            "pos": {
+              "0": 117,
+              "1": 621
+            },
+            "size": {
+              "0": 315,
+              "1": 314
+            },
+            "flags": {},
+            "order": 1,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+              {
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "links": [],
+                "slot_index": 0,
+                "shape": 3
+              },
+              {
+                "name": "MASK",
+                "type": "MASK",
+                "links": null,
+                "shape": 3
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "LoadImage"
+            },
+            "widgets_values": [
+              "WhatsApp Görsel 2024-09-10 saat 12.10.10_9baf7a45.jpg",
+              "image"
+            ],
+            "index": 0
+          },
+          {
+            "id": -1,
+            "type": "VAEEncode",
+            "pos": {
+              "0": 669,
+              "1": 745
+            },
+            "size": {
+              "0": 210,
+              "1": 46
+            },
+            "flags": {},
+            "order": 5,
+            "mode": 0,
+            "inputs": [
+              {
+                "name": "pixels",
+                "type": "IMAGE",
+                "link": null
+              },
+              {
+                "name": "vae",
+                "type": "VAE",
+                "link": null
+              }
+            ],
+            "outputs": [
+              {
+                "name": "LATENT",
+                "type": "LATENT",
+                "links": [],
+                "slot_index": 0,
+                "shape": 3
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "VAEEncode"
+            },
+            "index": 1
+          },
+          {
+            "id": -1,
+            "type": "VAEDecode",
+            "pos": {
+              "0": 1179,
+              "1": 435
+            },
+            "size": {
+              "0": 307.306640625,
+              "1": 46.899879455566406
+            },
+            "flags": {},
+            "order": 7,
+            "mode": 0,
+            "inputs": [
+              {
+                "name": "samples",
+                "type": "LATENT",
+                "link": null
+              },
+              {
+                "name": "vae",
+                "type": "VAE",
+                "link": null
+              }
+            ],
+            "outputs": [
+              {
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "links": [],
+                "slot_index": 0
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "VAEDecode"
+            },
+            "index": 2
+          },
+          {
+            "id": -1,
+            "type": "SaveImage",
+            "pos": {
+              "0": 1041,
+              "1": 545
+            },
+            "size": {
+              "0": 757.022216796875,
+              "1": 580.3594360351562
+            },
+            "flags": {},
+            "order": 8,
+            "mode": 0,
+            "inputs": [
+              {
+                "name": "images",
+                "type": "IMAGE",
+                "link": null
+              }
+            ],
+            "outputs": [],
+            "properties": {
+              "Node name for S&R": "SaveImage"
+            },
+            "widgets_values": [
+              "ComfyUI"
+            ],
+            "index": 3
+          }
+        ],
+        "links": [
+          [
+            null,
+            0,
+            1,
+            0,
+            33,
+            "IMAGE"
+          ],
+          [
+            null,
+            2,
+            1,
+            1,
+            35,
+            "VAE"
+          ],
+          [
+            null,
+            0,
+            2,
+            0,
+            3,
+            "LATENT"
+          ],
+          [
+            null,
+            2,
+            2,
+            1,
+            35,
+            "VAE"
+          ],
+          [
+            2,
+            0,
+            3,
+            0,
+            8,
+            "IMAGE"
+          ]
+        ],
+        "external": [
+          [
+            0,
+            0,
+            "IMAGE"
+          ],
+          [
+            1,
+            0,
+            "LATENT"
+          ]
+        ]
+      },
+      "Sampler Parameters": {
+        "nodes": [
+          {
+            "id": -1,
+            "type": "KSampler",
+            "pos": {
+              "0": 1045,
+              "1": 14
+            },
+            "size": {
+              "0": 331.7843933105469,
+              "1": 344.4033508300781
+            },
+            "flags": {},
+            "order": 2,
+            "mode": 0,
+            "inputs": [
+              {
+                "name": "model",
+                "type": "MODEL",
+                "link": null
+              },
+              {
+                "name": "positive",
+                "type": "CONDITIONING",
+                "link": null
+              },
+              {
+                "name": "negative",
+                "type": "CONDITIONING",
+                "link": null
+              },
+              {
+                "name": "latent_image",
+                "type": "LATENT",
+                "link": null
+              }
+            ],
+            "outputs": [
+              {
+                "name": "LATENT",
+                "type": "LATENT",
+                "links": [],
+                "slot_index": 0
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "KSampler"
+            },
+            "widgets_values": [
+              463263857736675,
+              "randomize",
+              20,
+              7,
+              "dpmpp_2m",
+              "karras",
+              0.5
+            ],
+            "index": 0
+          },
+          {
+            "id": -1,
+            "type": "ImageScale",
+            "pos": {
+              "0": 1039,
+              "1": -162
+            },
+            "size": {
+              "0": 315,
+              "1": 130
+            },
+            "flags": {},
+            "order": 3,
+            "mode": 0,
+            "inputs": [
+              {
+                "name": "image",
+                "type": "IMAGE",
+                "link": null
+              }
+            ],
+            "outputs": [
+              {
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "links": [],
+                "slot_index": 0,
+                "shape": 3
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "ImageScale"
+            },
+            "widgets_values": [
+              "nearest-exact",
+              768,
+              768,
+              "center"
+            ],
+            "index": 1
+          }
+        ],
+        "links": [
+          [
+            null,
+            0,
+            0,
+            0,
+            35,
+            "MODEL"
+          ],
+          [
+            null,
+            2,
+            0,
+            1,
+            36,
+            "CONDITIONING"
+          ],
+          [
+            null,
+            1,
+            0,
+            2,
+            34,
+            "CONDITIONING"
+          ],
+          [
+            null,
+            2,
+            0,
+            3,
+            37,
+            "LATENT"
+          ],
+          [
+            null,
+            0,
+            1,
+            0,
+            37,
+            "IMAGE"
+          ]
+        ],
+        "external": [
+          [
+            0,
+            0,
+            "LATENT"
+          ],
+          [
+            1,
+            0,
+            "IMAGE"
+          ]
+        ]
+      }
+    }
+  },
+  "version": 0.4
+}
