@@ -1,8 +1,9 @@
 # Van Gogh Style Transfer with ComfyUI
 
-
-![ComfyUI_00287_](https://github.com/user-attachments/assets/1236bfa1-05c2-4f47-b7fa-0d6345f068aa)
-![ComfyUI_00289_](https://github.com/user-attachments/assets/622415fe-1a3c-4c9e-9220-70bc9a941fcc)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/1236bfa1-05c2-4f47-b7fa-0d6345f068aa" alt="ComfyUI_00287" width="300"/>
+  <img src="https://github.com/user-attachments/assets/622415fe-1a3c-4c9e-9220-70bc9a941fcc" alt="ComfyUI_00289" width="300"/>
+</p>
 
 
 ## Introduction
