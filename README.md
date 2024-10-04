@@ -1,5 +1,10 @@
 # Van Gogh Style Transfer with ComfyUI
 
+
+![ComfyUI_00287_](https://github.com/user-attachments/assets/1236bfa1-05c2-4f47-b7fa-0d6345f068aa)
+![ComfyUI_00289_](https://github.com/user-attachments/assets/622415fe-1a3c-4c9e-9220-70bc9a941fcc)
+
+
 ## Introduction
 
 This project demonstrates how to use **ComfyUI**, **Stable Diffusion**, and **ControlNet** to perform style transfer, converting a user-provided image into a Van Gogh-style artwork. The workflow leverages the strengths of deep learning and image processing techniques to achieve a visually appealing result that mimics Van Gogh's artistic style.
